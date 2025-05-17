@@ -4,16 +4,24 @@ on:
   push:
     branches: [ "main" ]
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     
     steps:
-      - uses: actions/checkout@v3
-      
-      - name: Set up files for deployment
+      - uses: actions/checkout@v4
+        
+      - name: Set up files
         run: |
-          mkdir public
+          mkdir -p public
           cp -r src/* public/
           
       - name: Deploy to GitHub Pages
@@ -21,3 +29,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+          force_orphan: true
