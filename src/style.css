@@ -1,11 +1,17 @@
-body {
-    font-family: Arial, sans-serif;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    line-height: 1.6;
-    color: #333;
+.red-text {
+    color: red;
+    text-align: centre;
 }
-h1 {
-    color: #2c3e50;
+
+.bottom-text {
+    margin-top: 40px;
+    font-size: 16px;
+}
+
+.footer-text {
+    color: gray;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    font-style: italic;
 }
